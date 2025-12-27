@@ -42,6 +42,10 @@ namespace ProvokeWarWithVassals
         [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
         public int HonorLevel { get; set; } = -1;
 
+        [SettingPropertyInteger("{=!!}Relation Loss With Enemy Faction Leader", -100, -1, Order = 7, RequireRestart = false, HintText = "{=!!}The amount of relation loss with the enemy faction leader. Default is -10.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int RelationLossWithEnemyFactionLeader { get; set; } = -10;
+
         public static Settings Current => Instance!;
     }
 }
