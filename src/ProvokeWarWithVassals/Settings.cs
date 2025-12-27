@@ -1,6 +1,7 @@
 ﻿using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
+using System;
 using TaleWorlds.Localization;
 
 namespace ProvokeWarWithVassals
@@ -14,7 +15,7 @@ namespace ProvokeWarWithVassals
         public override string FolderName => "ProvokeWarWithVassals";
         public override string FormatType => "json2";
 
-        [SettingPropertyBool(HeadingEnableModLogic, IsToggle = true, Order = 0, RequireRestart = true, HintText = "{=!!}Enables the mod logic. Requires game restart to remove dialogue option if disabled. Default is Enabled.")]
+        [SettingPropertyBool(HeadingEnableModLogic, IsToggle = true, Order = 0, RequireRestart = false, HintText = "{=!!}Enables the mod logic. The dialogue option will be removed when disabled. Default is Enabled.")]
         [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
         public bool EnableModLogic { get; set; } = true;
 

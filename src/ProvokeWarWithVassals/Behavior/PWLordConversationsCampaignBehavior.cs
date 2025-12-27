@@ -37,7 +37,7 @@ namespace ProvokeWarWithVassals.Behavior
         public bool conversation_lord_attack_on_condition()
         {
             MobileParty encounteredMobileParty = PlayerEncounter.EncounteredMobileParty;
-            return encounteredMobileParty != null && Hero.MainHero.MapFaction != null && encounteredMobileParty.LeaderHero.MapFaction != Hero.MainHero.MapFaction && Hero.MainHero.MapFaction.Leader != Hero.MainHero && !FactionManager.IsAtWarAgainstFaction(encounteredMobileParty.LeaderHero.MapFaction, Hero.MainHero.MapFaction);
+            return Settings.Current.EnableModLogic && encounteredMobileParty != null && Hero.MainHero.MapFaction != null && encounteredMobileParty.LeaderHero.MapFaction != Hero.MainHero.MapFaction && Hero.MainHero.MapFaction.Leader != Hero.MainHero && !FactionManager.IsAtWarAgainstFaction(encounteredMobileParty.LeaderHero.MapFaction, Hero.MainHero.MapFaction);
         }
 
         private void conversation_lord_attack_on_consequence()
