@@ -1,135 +1,56 @@
 ﻿using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
-using MCM.Common;
+
+using TaleWorlds.Localization;
 
 namespace ProvokeWarWithVassals
 {
     public class Settings : AttributeGlobalSettings<Settings>
     {
-        public Settings()
-        {
-            //Rmpty
-        }
-        private bool _enableModLogic = true;
-
-        private bool _enableRelationLossWithOwnFactionLeader = false;
-        private int _relationLossWithOwnFactionLeader = -10;
-
-        private bool _enableRelationLossWithOwnFactionClans = false;
-        private int _relationLossWithOwnFactionClans = -10;
-
-        private bool _relationshipLossHonorRequirement = false;
-        private int _honorLevel = -1;
+        private const string HeadingEnableModLogic = "{=h7qVukma}Enable Mod Logic";
 
         public override string Id => "ProvokeWarWithVassals_v1";
-
-        public override string DisplayName => "Provoke War With Vassals";
-
+        public override string DisplayName => new TextObject("{=ZmZwfBEd}Provoke War With Vassals").ToString();
         public override string FolderName => "ProvokeWarWithVassals";
-
         public override string FormatType => "json2";
 
-        [SettingPropertyBool("{=!}Enable Mod Logic", Order = 0, RequireRestart = true, HintText = "{=!}Enables the mod logic. Requires game restart to remove dialogue option if disabled. Default is Enabled.")]
-        public bool EnableModLogic
-        {
-            get => _enableModLogic;
-            set
-            {
-                if (_enableModLogic != value)
-                {
-                    _enableModLogic = value;
-                    OnPropertyChanged(nameof(EnableModLogic));
-                }
-            }
-        }
+        [SettingPropertyBool(HeadingEnableModLogic, IsToggle = true, Order = 0, RequireRestart = false, HintText = "{=ABPghIR3}Enables the mod logic. The dialogue option will be removed when disabled. Default is Enabled.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public bool EnableModLogic { get; set; } = true;
 
-        [SettingPropertyBool("{=!}Enable Relation Loss With Own Faction Leader", Order = 1, RequireRestart = false, HintText = "{=!}Enables relation loss with your faction leader. Default is Disabled.")]
-        public bool EnableRelationLossWithOwnFactionLeader
-        {
-            get => _enableRelationLossWithOwnFactionLeader;
-            set
-            {
-                if (_enableRelationLossWithOwnFactionLeader != value)
-                {
-                    _enableRelationLossWithOwnFactionLeader = value;
-                    OnPropertyChanged(nameof(EnableRelationLossWithOwnFactionLeader));
-                }
-            }
-        }
+        [SettingPropertyBool("{=Du8XO6qO}Enable Relation Loss With Own Faction Leader", Order = 1, RequireRestart = false, HintText = "{=SSaKS8gV}Enables relation loss with your faction leader. Default is Disabled.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public bool EnableRelationLossWithOwnFactionLeader { get; set; } = false;
 
-        [SettingPropertyInteger("{=!}Relation Loss With Own Faction Leader", -100, -1, Order = 2, RequireRestart = false, HintText = "{=!}The amount of relation loss with your faction leader. Default is -10.")]
-        public int RelationLossWithOwnFactionLeader
-        {
-            get => _relationLossWithOwnFactionLeader;
-            set
-            {
-                if (_relationLossWithOwnFactionLeader != value)
-                {
-                    _relationLossWithOwnFactionLeader = value;
-                    OnPropertyChanged(nameof(RelationLossWithOwnFactionLeader));
-                }
-            }
-        }
+        [SettingPropertyInteger("{=f0DlVvK8}Relation Loss With Own Faction Leader", -100, -1, Order = 2, RequireRestart = false, HintText = "{=G3ZVLL7F}The amount of relation loss with your faction leader. Default is -10.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int RelationLossWithOwnFactionLeader { get; set; } = -10;
 
-        [SettingPropertyBool("{=!}Enable Relation Loss With Own Faction Clans", Order = 3, RequireRestart = false, HintText = "{=!}Enables relation loss with your faction's clans. Default is Disabled.")]
-        public bool EnableRelationLossWithOwnFactionClans
-        {
-            get => _enableRelationLossWithOwnFactionClans;
-            set
-            {
-                if (_enableRelationLossWithOwnFactionClans != value)
-                {
-                    _enableRelationLossWithOwnFactionClans = value;
-                    OnPropertyChanged(nameof(EnableRelationLossWithOwnFactionClans));
-                }
-            }
-        }
+        [SettingPropertyBool("{=s2rvix5z}Enable Relation Loss With Own Faction Clans", Order = 3, RequireRestart = false, HintText = "{=0zEEql9I}Enables relation loss with your faction's clans. Default is Disabled.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public bool EnableRelationLossWithOwnFactionClans { get; set; } = false;
 
-        [SettingPropertyInteger("{=!}Relation Loss With Own Faction Clans", -100, -1, Order = 4, RequireRestart = false, HintText = "{=!}The amount of relation loss with your faction's clans. Default is -10.")]
-        public int RelationLossWithOwnFactionClans
-        {
-            get => _relationLossWithOwnFactionClans;
-            set
-            {
-                if (_relationLossWithOwnFactionClans != value)
-                {
-                    _relationLossWithOwnFactionClans = value;
-                    OnPropertyChanged(nameof(RelationLossWithOwnFactionClans));
-                }
-            }
-        }
+        [SettingPropertyInteger("{=Gx4FQodd}Relation Loss With Own Faction Clans", -100, -1, Order = 4, RequireRestart = false, HintText = "{=HU1eCr25}The amount of relation loss with your faction's clans. Default is -10.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int RelationLossWithOwnFactionClans { get; set; } = -10;
 
-        [SettingPropertyBool("{=!}Relationship Loss Honor Requirement", Order = 5, RequireRestart = false, HintText = "{=!}Enables an exception to relation loss for clans whose leader has an honor level at or below the selected value. Default is Disabled.")]
-        public bool RelationshipLossHonorRequirement
-        {
-            get => _relationshipLossHonorRequirement;
-            set
-            {
-                if (_relationshipLossHonorRequirement != value)
-                {
-                    _relationshipLossHonorRequirement = value;
-                    OnPropertyChanged(nameof(RelationshipLossHonorRequirement));
-                }
-            }
-        }
+        [SettingPropertyBool("{=UjtpsXha}Relationship Loss Honor Requirement", Order = 5, RequireRestart = false, HintText = "{=Euc22IGR}Enables an exception to relation loss for own faction clans whose leader has an honor level at or below the selected value. Default is Disabled.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public bool RelationshipLossHonorRequirement { get; set; } = false;
 
-        [SettingPropertyInteger("{=!}Honor Level", -2, 2, Order = 6, RequireRestart = false, HintText = "{=!}A clan leader in your faction at or below the selected value will not have a lower opinion of you for provoking a war against another faction's vassals. Default is -1.")]
-        public int HonorLevel
-        {
-            get => _honorLevel;
-            set
-            {
-                if (_honorLevel != value)
-                {
-                    _honorLevel = value;
-                    OnPropertyChanged(nameof(HonorLevel));
-                }
-            }
-        }
-        public static Settings Current
-        {
-            get => Settings.Instance!;
-        }
+        [SettingPropertyInteger("{=oWDoyAiX}Honor Level", -2, 2, Order = 6, RequireRestart = false, HintText = "{=UnBidFe3}A clan leader in your faction at or below the selected value will not have a lower opinion of you for provoking a war against another faction's vassals. Default is -1.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int HonorLevel { get; set; } = -1;
+
+        [SettingPropertyInteger("{=tM863ZOw}Relation Loss With Enemy Faction Leader", -100, -1, Order = 7, RequireRestart = false, HintText = "{=o2Xn2O38}The amount of relation loss with the enemy faction leader. Default is -10.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int RelationLossWithEnemyFactionLeader { get; set; } = -10;
+
+        [SettingPropertyInteger("{=wQCSiG3h}Relation Loss With Enemy Target Clan", -100, -1, Order = 8, RequireRestart = false, HintText = "{=ViMD8iYL}The amount of relation loss with the enemy target clan. Default is -10.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int RelationLossWithEnemyTargetClan { get; set; } = -10;
+
+        public static Settings Current => Instance!;
     }
 }

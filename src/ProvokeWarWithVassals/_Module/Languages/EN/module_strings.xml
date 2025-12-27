@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="English" />
+	</tags>
+	<strings>
+	  <string id="cFl3761Q" text="Provoke War With Vassals loaded" />
+	  <string id="h7qVukma" text="Enable Mod Logic" />
+	  <string id="ABPghIR3" text="Enables the mod logic. The dialogue option will be removed when disabled. Default is Enabled." />
+	  <string id="Du8XO6qO" text="Enable Relation Loss With Own Faction Leader" />
+	  <string id="SSaKS8gV" text="Enables relation loss with your faction leader. Default is Disabled." />
+	  <string id="f0DlVvK8" text="Relation Loss With Own Faction Leader" />
+	  <string id="G3ZVLL7F" text="The amount of relation loss with your faction leader. Default is -10." />
+	  <string id="s2rvix5z" text="Enable Relation Loss With Own Faction Clans" />
+	  <string id="0zEEql9I" text="Enables relation loss with your faction's clans. Default is Disabled." />
+	  <string id="Gx4FQodd" text="Relation Loss With Own Faction Clans" />
+	  <string id="HU1eCr25" text="The amount of relation loss with your faction's clans. Default is -10." />
+	  <string id="UjtpsXha" text="Relationship Loss Honor Requirement" />
+	  <string id="Euc22IGR" text="Enables an exception to relation loss for own faction clans whose leader has an honor level at or below the selected value. Default is Disabled." />
+	  <string id="oWDoyAiX" text="Honor Level" />
+	  <string id="UnBidFe3" text="A clan leader in your faction at or below the selected value will not have a lower opinion of you for provoking a war against another faction's vassals. Default is -1." />
+	  <string id="tM863ZOw" text="Relation Loss With Enemy Faction Leader" />
+	  <string id="o2Xn2O38" text="The amount of relation loss with the enemy faction leader. Default is -10." />
+	  <string id="wQCSiG3h" text="Relation Loss With Enemy Target Clan" />
+	  <string id="ViMD8iYL" text="The amount of relation loss with the enemy target clan. Default is -10." />
+	</strings>
+</base>
