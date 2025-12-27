@@ -1,16 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Module>
 	<Name value="Provoke War With Vassals"/>
 	<Id value="ProvokeWarWithVassals"/>
-	<Version value="v1.1.5"/>
-	<DefaultModule value="false"/>
-	<ModuleCategory value="Singleplayer"/>
+	<Version value="v1.0.3"/>
 	<Official value="false"/>
+    <SingleplayerModule value="true"/>
+    <MultiplayerModule value="false"/>
 	<DependedModules>
-		<DependedModule Id="Bannerlord.Harmony"/>
 		<DependedModule Id="Native"/>
 		<DependedModule Id="SandBoxCore"/>
 		<DependedModule Id="Sandbox"/>
-		<DependedModule Id="CustomBattle"/>
 		<DependedModule Id="StoryMode"/>
 	</DependedModules>
     <SubModules>
@@ -18,7 +17,10 @@
             <Name value="ProvokeWarWithVassals"/>
             <DLLName value="ProvokeWarWithVassals.dll"/>
             <SubModuleClassType value="ProvokeWarWithVassals.SubModule"/>
-            <Tags />
+            <Tags>
+                <Tag key="DedicatedServerType" value="none" />
+                <Tag key="IsNoRenderModeElement" value="false" />
+            </Tags>
         </SubModule>
     </SubModules>
 </Module>

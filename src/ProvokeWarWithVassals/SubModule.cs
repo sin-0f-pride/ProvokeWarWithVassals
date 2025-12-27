@@ -4,8 +4,6 @@ using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 
-using HarmonyLib;
-
 using ProvokeWarWithVassals.Behavior;
 
 
@@ -16,13 +14,12 @@ namespace ProvokeWarWithVassals
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
-            new Harmony("mod.bannerlord.provokewarwithvassals").PatchAll();
         }
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot()
         {
             base.OnBeforeInitialModuleScreenSetAsRoot();
-            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=!!}Provoke War With Vassals loaded").ToString(), Color.FromUint(0x00E67E22)));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=cFl3761Q}Provoke War With Vassals loaded").ToString(), Color.FromUint(0x00E67E22)));
         }
 
         protected override void OnGameStart(Game game, IGameStarter starterObject)
