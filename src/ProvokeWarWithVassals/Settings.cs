@@ -46,6 +46,10 @@ namespace ProvokeWarWithVassals
         [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
         public int RelationLossWithEnemyFactionLeader { get; set; } = -10;
 
+        [SettingPropertyInteger("{=!!}Relation Loss With Enemy Target Clan", -100, -1, Order = 8, RequireRestart = false, HintText = "{=!!}The amount of relation loss with the enemy target clan. Default is -10.")]
+        [SettingPropertyGroup(HeadingEnableModLogic, GroupOrder = 1)]
+        public int RelationLossWithEnemyTargetClan { get; set; } = -10;
+
         public static Settings Current => Instance!;
     }
 }

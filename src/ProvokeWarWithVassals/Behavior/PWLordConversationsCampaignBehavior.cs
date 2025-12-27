@@ -47,7 +47,7 @@ namespace ProvokeWarWithVassals.Behavior
                 MobileParty encounteredMobileParty = PlayerEncounter.EncounteredMobileParty;
                 if (encounteredMobileParty != null && !FactionManager.IsAtWarAgainstFaction(Hero.MainHero.MapFaction, encounteredMobileParty.MapFaction))
                 {
-                    ChangeRelationAction.ApplyPlayerRelation(Hero.OneToOneConversationHero, -10, true, true);
+                    ChangeRelationAction.ApplyPlayerRelation(Hero.OneToOneConversationHero, Settings.Current.RelationLossWithEnemyTargetClan, true, true);
                     ChangeRelationAction.ApplyPlayerRelation(Hero.OneToOneConversationHero.MapFaction.Leader, Settings.Current.RelationLossWithEnemyFactionLeader, true, true);
                     if (Settings.Current.EnableRelationLossWithOwnFactionLeader && Hero.MainHero.MapFaction.Leader != Hero.MainHero)
                     {
